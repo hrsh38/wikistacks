@@ -1,5 +1,5 @@
 const express = require('express');
-const {addPage, wikiPage, main} = require('../views');
+const {addPage, wikiPage, main, editPage} = require('../views');
 const router = express.Router();
 const { Page, User } = require("../models");
 const slugify = require('slugify');
@@ -58,6 +58,16 @@ router.get('/:slug/delete', async (req, res, next) => {
     });
     await page.destroy();
     res.redirect('/wiki');
-})
+});
+
+router.get('/:slug/edit', async (req, res, next) => {
+    const page = await Page.findOne({
+        where: {slug: req.params.slug}
+    });
+    const user = await User.findOne({
+        where: {id: page.authorId}
+    });
+    res.send(editPage(page, user));
+});
 
 module.exports = router;
