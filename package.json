@@ -1,0 +1,21 @@
+{
+  "name": "wikistacks",
+  "version": "1.0.0",
+  "description": "wikistacks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Harsh Patel & Austin Trow",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "html-template-tag": "^3.1.0",
+    "morgan": "^1.9.1"
+  }
+}
