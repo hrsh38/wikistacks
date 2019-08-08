@@ -16,7 +16,10 @@ const Page = db.define('page', {
     type: Sequelize.TEXT,
     allowNull: false
   },
-  status: Sequelize.ENUM('open', 'closed')
+  status: {
+    type: Sequelize.ENUM('open', 'closed'),
+    defaultValue: 'open'
+  }
 });
 
 const User = db.define('user', {
